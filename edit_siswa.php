@@ -42,42 +42,42 @@ $wali_result = mysqli_query($koneksi, "SELECT * FROM wali_murid");
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8"
-<meta name="viewposrt" content= "widht=device_width, initial-scale=1.0">
-<tittle> Edit Siswa </titlle>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content= "widht=device_width, initial-scale=1.0">
+<title> Edit Siswa </title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
+<div class="container mt-4">
 <h2>Edit Data Siswa</h2>
 <form method="POST">
  <div class="mb-3">
- <label class="form-label">NIS</label>
- <input type="text" name="nis" class="form-control" value="<?php echo $siswa['nis']; ?>" <required>
+ <label class="form-label">NIS:</label>
+ <input type="text" name="nis" class="form-control" value="<?php echo $siswa['nis']; ?>" required>
  </div>
  <div class="mb-3">
-  <label class="from-label">Nama Siswa</label>
-  <input type"text name="nama_siswa" class="form_control" value+"<?php echo $siswa['nama_siswa']; ?>" <required>
+  <label class="form-label">Nama Siswa:</label>
+  <input type="text" name="nama_siswa" class="form-control" value="<?php echo $siswa['nama_siswa']; ?>" required>
 </div>
 <div class="mb-3">
         
-        <label class="form_label">Jenis Kelamin</label>
+        <label class="form_label">Jenis Kelamin:</label>
         <select name="jenis_kelamin" class="form-control" required>
             <option value="L" <?php if($siswa['jenis_kelamin'] == 'L') echo 'selected'; ?>>Laki-laki</option>
             <option value="P" <?php if($siswa['jenis_kelamin'] == 'P') echo 'selected'; ?>>Perempuan</option>
         </select>
         </div>
         <div class="mb-3">
-        <label class="form-label"> Tempat Lahir</label>
+        <label class="form-label"> Tempat Lahir:</label>
         <input type="text" name="tempat_lahir" class="form-control" value="<?php echo $siswa['tempat_lahir']; ?>" required>
         </div>
         <div class="mb-3">
-        <label class="form-label">Tanggal Lahir</label>
-        <input type="date" name="tanggal_lahir" value="<?php echo $siswa['tanggal_lahir']; ?>" required>
+        <label class="form-label">Tanggal Lahir:</label>
+        <input type="date" name="tanggal_lahir" class="form-control" value="<?php echo $siswa['tanggal_lahir']; ?>" required>
         </div>
         <div class="mb-3">
         <label class="form-label">Kelas:</label>
-        <select name="id_kelas" class"form-control" required>
+        <select name="id_kelas" class="form-control" required>
             <?php 
             while($id_kelas = mysqli_fetch_assoc($kelas_result)): ?>
                 <option value="<?php echo $id_kelas['id_kelas']; ?>" 
@@ -99,8 +99,11 @@ $wali_result = mysqli_query($koneksi, "SELECT * FROM wali_murid");
             <?php endwhile; ?>
         </select>
         
-        <button type="submit">Update</button>
-        <a href="index.php">Batal</a>
+        <button type="submit" class="btn btn-primary">Update</button>
+<a href="index.php" class="btn btn-secondary">Batal</a>
+            </div>
+            <input type="hidden" name = "id siswa" value="<?php echo $siswa['id_siswa']; ?>"
+
     </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
